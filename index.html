@@ -33,10 +33,18 @@
   .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
   .nav-links a{color:rgba(255,255,255,0.72); font-size:14px; font-weight:500; text-decoration:none; transition:color .15s;}
   .nav-links a:hover{color:#fff;}
+  .nav-actions{display:flex; gap:10px; align-items:center; flex-shrink:0;}
   .nav-btn{
     font-family:'IBM Plex Mono'; font-size:12px; text-transform:uppercase; letter-spacing:0.06em;
     background:var(--accent); color:var(--accent-ink); padding:10px 16px; border-radius:100px; text-decoration:none; font-weight:500;
+    border:none; cursor:pointer;
   }
+  .lang-btn{
+    font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.04em;
+    background:transparent; color:#fff; padding:9px 14px; border-radius:100px;
+    border:1px solid rgba(255,255,255,0.28); cursor:pointer; transition:all .15s ease;
+  }
+  .lang-btn:hover{border-color:rgba(255,255,255,0.6);}
 
   /* HERO - dark */
   .hero{background:var(--ink); color:#fff; padding:64px 0 90px;}
@@ -147,6 +155,7 @@
     nav .wrap{height:64px;}
     .nav-name{font-size:14px;}
     .nav-btn{padding:9px 14px; font-size:11px;}
+    .lang-btn{padding:8px 11px; font-size:11px;}
     .hero{padding:40px 0 56px;}
     .hero-top{gap:20px; margin-bottom:40px;}
     .avatar{width:88px; height:88px; font-size:30px; border-radius:16px;}
@@ -174,14 +183,14 @@
   <div class="wrap">
     <span class="nav-name">Hilguener Ferreira Silva</span>
     <ul class="nav-links">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#tools">Tools</a></li>
+      <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
+      <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
+      <li><a href="#tools" data-i18n="navTools">Tools</a></li>
     </ul>
-    <div style="display:flex; gap:10px; align-items:center;">
-    <button id="langToggle" class="nav-btn" type="button">🇧🇷 PT</button>
-    <a class="nav-btn" href="mailto:hilgueneer@gmail.com" data-i18n="contactButton">Say Hello</a>
-</div>
+    <div class="nav-actions">
+      <button id="langToggle" class="lang-btn" type="button">PT</button>
+      <a class="nav-btn" href="mailto:hilgueneer@gmail.com" data-i18n="navBtn">Say Hello</a>
+    </div>
   </div>
 </nav>
 
@@ -190,16 +199,16 @@
     <div class="hero-top">
       <div class="avatar">HF</div>
       <div class="hero-id">
-        <span class="eyebrow">Based in Brazil · Remote-first</span>
+        <span class="eyebrow" data-i18n="heroEyebrow">Based in Brazil · Remote-first</span>
         <h1>Hilguener Ferreira Silva</h1>
-        <p>A Full Stack Developer who turns messy internal processes into clean, reliable software.</p>
+        <p data-i18n="heroBio">A Full Stack Developer who turns messy internal processes into clean, reliable software.</p>
       </div>
     </div>
 
-    <h2 class="headline">Full Stack<br>Developer<span class="accent-word">.</span></h2>
+    <h2 class="headline" data-i18n="headline">Full Stack<br>Developer<span class="accent-word">.</span></h2>
 
     <div class="hero-sub">
-      <p>Backend, frontend, and data — I build REST APIs, Angular interfaces, and BI dashboards, and I ship and run them myself, from database to deploy.</p>
+      <p data-i18n="heroSub">Backend, frontend, and data — I build REST APIs, Angular interfaces, and BI dashboards, and I ship and run them myself, from database to deploy.</p>
       <div class="hero-tags">
         <span>ASP.NET Core</span>
         <span>Angular</span>
@@ -209,9 +218,9 @@
     </div>
 
     <div class="stats-row">
-      <div class="stat"><b>2+</b><span>Years Professional Experience</span></div>
-      <div class="stat"><b>4</b><span>Projects Shipped</span></div>
-      <div class="stat"><b>GMT-3</b><span>Remote-Ready Timezone</span></div>
+      <div class="stat"><b>2+</b><span data-i18n="stat1Label">Years Professional Experience</span></div>
+      <div class="stat"><b>4</b><span data-i18n="stat2Label">Projects Shipped</span></div>
+      <div class="stat"><b>GMT-3</b><span data-i18n="stat3Label">Remote-Ready Timezone</span></div>
     </div>
   </div>
 </header>
@@ -220,8 +229,8 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="tag">Selected Work</span>
-        <h2>Recent Projects</h2>
+        <span class="tag" data-i18n="projectsTag">Selected Work</span>
+        <h2 data-i18n="projectsHeading">Recent Projects</h2>
       </div>
     </div>
     <div class="project-grid">
@@ -229,36 +238,36 @@
       <div class="project-card">
         <div class="project-thumb thumb-1">QMS · API</div>
         <div class="project-body">
-          <div class="project-top"><h3>Quality Management System</h3><span class="status live">Live</span></div>
-          <p>Layered REST API for internal process management — auth, document management, and action-plan tracking.</p>
-          <a class="link" href="#">View repository →</a>
+          <div class="project-top"><h3 data-i18n="proj1Title">Quality Management System</h3><span class="status live" data-i18n="statusLive">Live</span></div>
+          <p data-i18n="proj1Desc">Layered REST API for internal process management — auth, document management, and action-plan tracking.</p>
+          <a class="link" href="#" data-i18n="linkRepo">View repository →</a>
         </div>
       </div>
 
       <div class="project-card">
         <div class="project-thumb thumb-2">Recruitment · API</div>
         <div class="project-body">
-          <div class="project-top"><h3>Recruitment &amp; Selection API</h3><span class="status live">Live</span></div>
-          <p>Production-grade API — JWT + refresh tokens, rate limiting, health checks, structured logging.</p>
-          <a class="link" href="#">View repository →</a>
+          <div class="project-top"><h3 data-i18n="proj2Title">Recruitment &amp; Selection API</h3><span class="status live" data-i18n="statusLive">Live</span></div>
+          <p data-i18n="proj2Desc">Production-grade API — JWT + refresh tokens, rate limiting, health checks, structured logging.</p>
+          <a class="link" href="#" data-i18n="linkRepo">View repository →</a>
         </div>
       </div>
 
       <div class="project-card">
         <div class="project-thumb thumb-3">Tax · BI</div>
         <div class="project-body">
-          <div class="project-top"><h3>Tax Monitoring Dashboard</h3><span class="status live">Live</span></div>
-          <p>Power BI dashboard pulling directly from an ERP database to track tax obligations and compliance.</p>
-          <a class="link" href="#">View case study →</a>
+          <div class="project-top"><h3 data-i18n="proj3Title">Tax Monitoring Dashboard</h3><span class="status live" data-i18n="statusLive">Live</span></div>
+          <p data-i18n="proj3Desc">Power BI dashboard pulling directly from an ERP database to track tax obligations and compliance.</p>
+          <a class="link" href="#" data-i18n="linkCase">View case study →</a>
         </div>
       </div>
 
       <div class="project-card">
         <div class="project-thumb thumb-4">Cash Flow · BI</div>
         <div class="project-body">
-          <div class="project-top"><h3>Operational Cash Flow BI</h3><span class="status live">Live</span></div>
-          <p>Restructuring the chart of accounts so data is properly classified at the source before visualizing.</p>
-          <a class="link" href="#">View case study →</a>
+          <div class="project-top"><h3 data-i18n="proj4Title">Operational Cash Flow BI</h3><span class="status live" data-i18n="statusLive">Live</span></div>
+          <p data-i18n="proj4DescLive">Restructured the chart of accounts at the operational level and built a Power BI dashboard on the cleaned data, tracking inflows, outflows, and period-based balances.</p>
+          <a class="link" href="#" data-i18n="linkCase">View case study →</a>
         </div>
       </div>
 
@@ -270,21 +279,21 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="tag">Track Record</span>
-        <h2>Experience</h2>
+        <span class="tag" data-i18n="expTag">Track Record</span>
+        <h2 data-i18n="expHeading">Experience</h2>
       </div>
     </div>
 
     <div class="timeline-item">
-      <div class="dates">Jan 2024 — Present</div>
+      <div class="dates" data-i18n="expDates">Jan 2024 — Present</div>
       <div>
-        <h3>.NET Full Stack Developer</h3>
+        <h3 data-i18n="expRole">.NET Full Stack Developer</h3>
         <div class="company">SPM — Soluções Estratégicas e Sustentáveis</div>
         <ul>
-          <li>Design, develop, and maintain internal full-stack business applications across backend and frontend.</li>
-          <li>Build and maintain Power BI / SQL dashboards for KPI tracking and decision-making support.</li>
-          <li>Automate internal processes and integrate APIs to improve operational efficiency.</li>
-          <li>Administer Linux servers, virtual machines, and network infrastructure; provide technical support.</li>
+          <li data-i18n="expLi1">Design, develop, and maintain internal full-stack business applications across backend and frontend.</li>
+          <li data-i18n="expLi2">Build and maintain Power BI / SQL dashboards for KPI tracking and decision-making support.</li>
+          <li data-i18n="expLi3">Automate internal processes and integrate APIs to improve operational efficiency.</li>
+          <li data-i18n="expLi4">Administer Linux servers, virtual machines, and network infrastructure; provide technical support.</li>
         </ul>
       </div>
     </div>
@@ -295,30 +304,30 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="tag">Toolkit</span>
-        <h2>Tools &amp; Stack</h2>
+        <span class="tag" data-i18n="toolsTag">Toolkit</span>
+        <h2 data-i18n="toolsHeading">Tools &amp; Stack</h2>
       </div>
     </div>
     <div class="tools-grid">
-      <div class="tool"><b>ASP.NET Core</b><span>Backend</span></div>
-      <div class="tool"><b>C#</b><span>Language</span></div>
-      <div class="tool"><b>Angular</b><span>Frontend</span></div>
-      <div class="tool"><b>TypeScript</b><span>Language</span></div>
-      <div class="tool"><b>Power BI</b><span>Data &amp; BI</span></div>
-      <div class="tool"><b>SQL</b><span>Data</span></div>
-      <div class="tool"><b>PostgreSQL / MySQL</b><span>Database</span></div>
-      <div class="tool"><b>Linux</b><span>Infrastructure</span></div>
-      <div class="tool"><b>NGINX</b><span>Infrastructure</span></div>
-      <div class="tool"><b>Docker</b><span>Infrastructure</span></div>
-      <div class="tool"><b>Git</b><span>Tooling</span></div>
-      <div class="tool"><b>Entity Framework Core</b><span>ORM</span></div>
+      <div class="tool"><b>ASP.NET Core</b><span data-i18n="catBackend">Backend</span></div>
+      <div class="tool"><b>C#</b><span data-i18n="catLanguage">Language</span></div>
+      <div class="tool"><b>Angular</b><span data-i18n="catFrontend">Frontend</span></div>
+      <div class="tool"><b>TypeScript</b><span data-i18n="catLanguage">Language</span></div>
+      <div class="tool"><b>Power BI</b><span data-i18n="catDataBI">Data &amp; BI</span></div>
+      <div class="tool"><b>SQL</b><span data-i18n="catData">Data</span></div>
+      <div class="tool"><b>PostgreSQL / MySQL</b><span data-i18n="catDatabase">Database</span></div>
+      <div class="tool"><b>Linux</b><span data-i18n="catInfra">Infrastructure</span></div>
+      <div class="tool"><b>NGINX</b><span data-i18n="catInfra">Infrastructure</span></div>
+      <div class="tool"><b>Docker</b><span data-i18n="catInfra">Infrastructure</span></div>
+      <div class="tool"><b>Git</b><span data-i18n="catTooling">Tooling</span></div>
+      <div class="tool"><b>Entity Framework Core</b><span data-i18n="catOrm">ORM</span></div>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <h2>Let's build<br>something<span class="accent-word"> together.</span></h2>
+    <h2 data-i18n="contactHeading">Let's build<br>something<span class="accent-word"> together.</span></h2>
     <div class="contact-links">
       <a href="mailto:hilgueneer@gmail.com">hilgueneer@gmail.com</a>
       <a href="https://www.linkedin.com/in/hilguener-silva/" target="_blank" rel="noopener">LinkedIn</a>
@@ -327,27 +336,129 @@
   </div>
 </section>
 
-<footer>Lindolfo Collor, RS, Brazil — English B2 · Portuguese (Native)</footer>
-
+<footer data-i18n="footerText">Lindolfo Collor, RS, Brazil — English B2 · Portuguese (Native)</footer>
 
 <script>
-const translations={
-en:{contactButton:"Say Hello"},
-pt:{contactButton:"Fale comigo"}
-};
-let current=localStorage.getItem("lang")||"en";
-function apply(){
- document.querySelectorAll("[data-i18n]").forEach(e=>{
-  const k=e.dataset.i18n;
-  if(translations[current]&&translations[current][k]) e.textContent=translations[current][k];
- });
- document.getElementById("langToggle").textContent=current==="en"?"🇧🇷 PT":"🇺🇸 EN";
- localStorage.setItem("lang",current);
-}
-document.addEventListener("DOMContentLoaded",()=>{
- apply();
- document.getElementById("langToggle").onclick=()=>{current=current==="en"?"pt":"en";apply();}
-});
+  var i18n = {
+    navProjects:   { en:"Projects",  pt:"Projetos" },
+    navExperience: { en:"Experience", pt:"Experiência" },
+    navTools:      { en:"Tools", pt:"Ferramentas" },
+    navBtn:        { en:"Say Hello", pt:"Fale Comigo" },
+
+    heroEyebrow: { en:"Based in Brazil · Remote-first", pt:"Baseado no Brasil · Remoto" },
+    heroBio: {
+      en:"A Full Stack Developer who turns messy internal processes into clean, reliable software.",
+      pt:"Um Desenvolvedor Full Stack que transforma processos internos bagunçados em software limpo e confiável."
+    },
+    headline: {
+      en:'Full Stack<br>Developer<span class="accent-word">.</span>',
+      pt:'Desenvolvedor<br>Full Stack<span class="accent-word">.</span>'
+    },
+    heroSub: {
+      en:"Backend, frontend, and data — I build REST APIs, Angular interfaces, and BI dashboards, and I ship and run them myself, from database to deploy.",
+      pt:"Backend, frontend e dados — eu construo APIs REST, interfaces em Angular e dashboards de BI, e cuido de tudo sozinho, do banco de dados ao deploy."
+    },
+
+    stat1Label: { en:"Years Professional Experience", pt:"Anos de Experiência Profissional" },
+    stat2Label: { en:"Projects Shipped", pt:"Projetos Entregues" },
+    stat3Label: { en:"Remote-Ready Timezone", pt:"Fuso Horário Pronto para Remoto" },
+
+    projectsTag: { en:"Selected Work", pt:"Trabalhos Selecionados" },
+    projectsHeading: { en:"Recent Projects", pt:"Projetos Recentes" },
+
+    statusLive: { en:"Live", pt:"Ativo" },
+    statusProgress: { en:"In Progress", pt:"Em Andamento" },
+    linkRepo: { en:"View repository →", pt:"Ver repositório →" },
+    linkCase: { en:"View case study →", pt:"Ver estudo de caso →" },
+
+    proj1Title: { en:"Quality Management System", pt:"Sistema de Gestão da Qualidade" },
+    proj1Desc: {
+      en:"Layered REST API for internal process management — auth, document management, and action-plan tracking.",
+      pt:"API REST em camadas para gestão de processos internos — autenticação, gestão de documentos e planos de ação."
+    },
+
+    proj2Title: { en:"Recruitment &amp; Selection API", pt:"API de Recrutamento e Seleção" },
+    proj2Desc: {
+      en:"Production-grade API — JWT + refresh tokens, rate limiting, health checks, structured logging.",
+      pt:"API de nível produtivo — JWT + refresh tokens, rate limiting, health checks, logging estruturado."
+    },
+
+    proj3Title: { en:"Tax Monitoring Dashboard", pt:"Dashboard de Monitoramento Fiscal" },
+    proj3Desc: {
+      en:"Power BI dashboard pulling directly from an ERP database to track tax obligations and compliance.",
+      pt:"Dashboard Power BI que consome dados diretamente de um ERP para monitorar obrigações fiscais e conformidade."
+    },
+
+    proj4Title: { en:"Operational Cash Flow BI", pt:"BI de Fluxo de Caixa Operacional" },
+    proj4DescLive: {
+      en:"Restructured the chart of accounts at the operational level and built a Power BI dashboard on the cleaned data, tracking inflows, outflows, and period-based balances.",
+      pt:"Reestruturação do plano de contas no nível operacional e construção de um dashboard Power BI sobre os dados já organizados, com acompanhamento de entradas, saídas e saldos por período."
+    },
+
+    expTag: { en:"Track Record", pt:"Histórico" },
+    expHeading: { en:"Experience", pt:"Experiência" },
+    expDates: { en:"Jan 2024 — Present", pt:"Jan 2024 — Atual" },
+    expRole: { en:".NET Full Stack Developer", pt:"Desenvolvedor Full Stack .NET" },
+    expLi1: {
+      en:"Design, develop, and maintain internal full-stack business applications across backend and frontend.",
+      pt:"Projeto, desenvolvimento e manutenção de aplicações corporativas full-stack internas, atuando em backend e frontend."
+    },
+    expLi2: {
+      en:"Build and maintain Power BI / SQL dashboards for KPI tracking and decision-making support.",
+      pt:"Construção e manutenção de dashboards Power BI / SQL para acompanhamento de KPIs e apoio à decisão."
+    },
+    expLi3: {
+      en:"Automate internal processes and integrate APIs to improve operational efficiency.",
+      pt:"Automação de processos internos e integração de APIs para melhorar a eficiência operacional."
+    },
+    expLi4: {
+      en:"Administer Linux servers, virtual machines, and network infrastructure; provide technical support.",
+      pt:"Administração de servidores Linux, máquinas virtuais e infraestrutura de rede; suporte técnico."
+    },
+
+    toolsTag: { en:"Toolkit", pt:"Ferramentas" },
+    toolsHeading: { en:"Tools &amp; Stack", pt:"Ferramentas &amp; Stack" },
+
+    catBackend:  { en:"Backend", pt:"Backend" },
+    catLanguage: { en:"Language", pt:"Linguagem" },
+    catFrontend: { en:"Frontend", pt:"Frontend" },
+    catDataBI:   { en:"Data &amp; BI", pt:"Dados &amp; BI" },
+    catData:     { en:"Data", pt:"Dados" },
+    catDatabase: { en:"Database", pt:"Banco de Dados" },
+    catInfra:    { en:"Infrastructure", pt:"Infraestrutura" },
+    catOrm:      { en:"ORM", pt:"ORM" },
+    catTooling:  { en:"Tooling", pt:"Ferramentas" },
+
+    contactHeading: {
+      en:'Let\'s build<br>something<span class="accent-word"> together.</span>',
+      pt:'Vamos construir<br>algo<span class="accent-word"> juntos.</span>'
+    },
+
+    footerText: {
+      en:"Lindolfo Collor, RS, Brazil — English B2 · Portuguese (Native)",
+      pt:"Lindolfo Collor, RS, Brasil — Inglês B2 · Português (Nativo)"
+    }
+  };
+
+  var currentLang = "en";
+
+  function applyLang(lang){
+    document.documentElement.lang = (lang === "en") ? "en" : "pt-BR";
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var key = el.getAttribute("data-i18n");
+      if (i18n[key] && i18n[key][lang] !== undefined){
+        el.innerHTML = i18n[key][lang];
+      }
+    });
+    document.getElementById("langToggle").textContent = (lang === "en") ? "PT" : "EN";
+    currentLang = lang;
+  }
+
+  document.getElementById("langToggle").addEventListener("click", function(){
+    applyLang(currentLang === "en" ? "pt" : "en");
+  });
+
+  applyLang("en");
 </script>
 
 </body>
