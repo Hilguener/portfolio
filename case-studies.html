@@ -33,6 +33,22 @@
     display:flex; align-items:center; gap:6px;
   }
   .back-link:hover{color:#fff;}
+  .lang-btn{
+  font-family:'IBM Plex Mono';
+  font-size:12px;
+  letter-spacing:.04em;
+  background:transparent;
+  color:#fff;
+  padding:9px 14px;
+  border-radius:100px;
+  border:1px solid rgba(255,255,255,.28);
+  cursor:pointer;
+  transition:all .15s ease;
+}
+
+.lang-btn:hover{
+  border-color:rgba(255,255,255,.6);
+}
 
   header.page-head{padding:72px 0 56px; border-bottom:1px solid var(--line);}
   .eyebrow{
@@ -85,10 +101,14 @@
 <body>
 
 <nav>
-  <div class="wrap">
-    <span class="nav-name">Hilguener Ferreira Silva</span>
-    <a class="back-link" href="index.html">← Back to portfolio</a>
+<div class="wrap">
+  <span class="nav-name">Hilguener Ferreira Silva</span>
+
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button id="langToggle" class="lang-btn" type="button">PT</button>
+    <a class="back-link" href="index.html" data-i18n="backLink">← Back to portfolio</a>
   </div>
+</div>
 </nav>
 
 <header class="page-head">
