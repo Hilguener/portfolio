@@ -1,465 +1,226 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hilguener Ferreira Silva — Full Stack Developer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0B0C0E;
-    --ink-soft:#5B5E66;
-    --paper:#FAFAF8;
-    --line:#E4E4DF;
-    --card:#FFFFFF;
-    --accent:#C7FF5C;
-    --accent-ink:#3A4A0E;
-    --max:1160px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6;}
-  .mono{font-family:'IBM Plex Mono',monospace;}
-  h1,h2,h3{font-family:'Archivo',sans-serif; margin:0;}
-  a{color:inherit;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Hilguener Ferreira Silva, a full stack developer focused on .NET, Angular, Power BI, and business applications." />
+  <title>Hilguener Ferreira Silva — Full Stack Developer</title>
 
-  /* NAV */
-  nav{position:sticky; top:0; z-index:50; background:rgba(11,12,14,0.9); backdrop-filter:blur(8px);}
-  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:72px; gap:12px;}
-  .nav-name{color:#fff; font-family:'Archivo'; font-weight:700; font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0;}
-  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
-  .nav-links a{color:rgba(255,255,255,0.72); font-size:14px; font-weight:500; text-decoration:none; transition:color .15s;}
-  .nav-links a:hover{color:#fff;}
-  .nav-actions{display:flex; gap:10px; align-items:center; flex-shrink:0;}
-  .nav-btn{
-    font-family:'IBM Plex Mono'; font-size:12px; text-transform:uppercase; letter-spacing:0.06em;
-    background:var(--accent); color:var(--accent-ink); padding:10px 16px; border-radius:100px; text-decoration:none; font-weight:500;
-    border:none; cursor:pointer;
-  }
-  .lang-btn{
-    font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.04em;
-    background:transparent; color:#fff; padding:9px 14px; border-radius:100px;
-    border:1px solid rgba(255,255,255,0.28); cursor:pointer; transition:all .15s ease;
-  }
-  .lang-btn:hover{border-color:rgba(255,255,255,0.6);}
+  <link rel="canonical" href="https://hilguener.dev/" />
+  <meta name="theme-color" content="#0b0c0e" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-  /* HERO - dark */
-  .hero{background:var(--ink); color:#fff; padding:64px 0 90px;}
-  .hero-top{display:flex; gap:44px; align-items:center; margin-bottom:56px; flex-wrap:wrap;}
-  .avatar{
-    width:132px; height:132px; border-radius:24px; flex-shrink:0;
-    background:linear-gradient(150deg,#3A4A0E, #C7FF5C 130%);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Archivo'; font-weight:800; font-size:44px; color:#0B0C0E;
-  }
-  .hero-id{flex:1 1 240px; min-width:0;}
-  .hero-id .eyebrow{
-    font-family:'IBM Plex Mono'; font-size:12px; text-transform:uppercase; letter-spacing:0.1em;
-    color:var(--accent); margin-bottom:10px; display:block;
-  }
-  .hero-id h1{font-size:clamp(30px,4vw,42px); color:#fff;}
-  .hero-id p{color:rgba(255,255,255,0.6); font-size:15px; margin:10px 0 0; max-width:420px;}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hilguener Ferreira Silva — Full Stack Developer" />
+  <meta property="og:description" content="Portfolio of Hilguener Ferreira Silva, a full stack developer focused on .NET, Angular, Power BI, and business applications." />
+  <meta property="og:url" content="https://hilguener.dev/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hilguener Ferreira Silva — Full Stack Developer" />
+  <meta name="twitter:description" content="Portfolio of Hilguener Ferreira Silva, a full stack developer focused on .NET, Angular, Power BI, and business applications." />
 
-  .headline{font-size:clamp(46px,8vw,104px); font-weight:800; text-transform:uppercase; line-height:0.96; letter-spacing:-0.01em;}
-  .headline .accent-word{color:var(--accent);}
-  .hero-sub{display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-top:32px; flex-wrap:wrap;}
-  .hero-sub p{max-width:440px; color:rgba(255,255,255,0.68); font-size:16px; margin:0;}
-  .hero-tags{display:flex; gap:10px; flex-wrap:wrap;}
-  .hero-tags span{
-    font-family:'IBM Plex Mono'; font-size:12px; border:1px solid rgba(255,255,255,0.22);
-    color:rgba(255,255,255,0.8); padding:7px 13px; border-radius:100px;
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hilguener Ferreira Silva",
+    "jobTitle": "Full Stack Developer",
+    "url": "https://hilguener.dev/",
+    "email": "mailto:hilgueneer@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lindolfo Collor",
+      "addressRegion": "RS",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/hilguener-silva/",
+      "https://github.com/Hilguener"
+    ]
   }
-
-  .stats-row{
-    margin-top:64px; padding-top:36px; border-top:1px solid rgba(255,255,255,0.14);
-    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-  }
-  .stat b{font-family:'Archivo'; font-size:clamp(32px,4vw,44px); font-weight:800; color:var(--accent); display:block;}
-  .stat span{font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.55);}
-
-  /* SECTIONS */
-  section{padding:88px 0;}
-  .section-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:44px; flex-wrap:wrap; gap:14px;}
-  .section-head .tag{font-family:'IBM Plex Mono'; font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-soft);}
-  .section-head h2{font-size:clamp(26px,3.4vw,36px); text-transform:uppercase;}
-
-  /* PROJECTS */
-  .project-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
-  .project-card{
-    background:var(--card); border:1px solid var(--line); border-radius:20px; overflow:hidden;
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .project-card:hover{transform:translateY(-4px); box-shadow:0 20px 40px -20px rgba(11,12,14,0.25);}
-  .project-thumb{
-    height:150px; display:flex; align-items:center; justify-content:center;
-    font-family:'Archivo'; font-weight:800; font-size:15px; text-transform:uppercase; letter-spacing:0.04em;
-    color:rgba(11,12,14,0.32);
-  }
-  .thumb-1{background:linear-gradient(135deg,#EDEFE4,#DCE3C9);}
-  .thumb-2{background:linear-gradient(135deg,#E7E9F5,#CBD0EC);}
-  .thumb-3{background:linear-gradient(135deg,#F5EAE2,#EBD2BE);}
-  .thumb-4{background:linear-gradient(135deg,#E2EFEA,#C4E0D3);}
-  .project-body{padding:22px 24px 26px;}
-  .project-top{display:flex; justify-content:space-between; gap:10px; align-items:flex-start; margin-bottom:8px;}
-  .project-card h3{font-size:17px; text-transform:none;}
-  .status{font-family:'IBM Plex Mono'; font-size:10px; text-transform:uppercase; padding:4px 9px; border-radius:100px; white-space:nowrap;}
-  .status.live{background:#E7F5DE; color:#41631E;}
-  .status.progress{background:#FBEFDD; color:#8A5B1E;}
-  .project-card p{color:var(--ink-soft); font-size:14px; margin:0 0 14px;}
-  .project-card .link{font-family:'IBM Plex Mono'; font-size:12.5px; text-decoration:none; border-bottom:1px solid var(--ink); padding-bottom:2px;}
-
-  /* EXPERIENCE timeline */
-  .timeline-item{
-    display:grid; grid-template-columns:140px 1fr; gap:28px; padding:28px 0; border-top:1px solid var(--line);
-  }
-  .timeline-item:last-child{border-bottom:1px solid var(--line);}
-  .timeline-item .dates{font-family:'IBM Plex Mono'; font-size:12.5px; color:var(--ink-soft); padding-top:3px;}
-  .timeline-item h3{font-size:19px; margin-bottom:4px; text-transform:none;}
-  .timeline-item .company{color:var(--ink-soft); font-size:14px; margin-bottom:14px;}
-  .timeline-item ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:14.5px;}
-  .timeline-item li{margin-bottom:6px;}
-
-  /* TOOLS */
-  .tools-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:16px; overflow:hidden;}
-  .tool{background:var(--card); padding:22px; display:flex; flex-direction:column; gap:4px;}
-  .tool b{font-size:14.5px;}
-  .tool span{font-family:'IBM Plex Mono'; font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.05em;}
-
-  /* CONTACT */
-  .contact{background:var(--ink); color:#fff;}
-  .contact .wrap{padding:96px 32px;}
-  .contact h2{font-size:clamp(38px,7vw,84px); text-transform:uppercase; line-height:0.98; margin-bottom:36px;}
-  .contact h2 .accent-word{color:var(--accent);}
-  .contact-links{display:flex; gap:16px; flex-wrap:wrap;}
-  .contact-links a{
-    font-family:'IBM Plex Mono'; font-size:13px; text-decoration:none; color:#fff;
-    border:1px solid rgba(255,255,255,0.25); padding:12px 20px; border-radius:100px; transition:all .15s;
-  }
-  .contact-links a:hover{background:var(--accent); color:var(--accent-ink); border-color:var(--accent);}
-
-  footer{background:var(--ink); color:rgba(255,255,255,0.4); text-align:center; padding:0 0 40px; font-size:12.5px; font-family:'IBM Plex Mono';}
-
-  @media (max-width:820px){
-    .project-grid{grid-template-columns:1fr;}
-    .tools-grid{grid-template-columns:repeat(2,1fr);}
-    .timeline-item{grid-template-columns:1fr; gap:8px;}
-    .stats-row{grid-template-columns:1fr; gap:20px;}
-    .nav-links{display:none;}
-  }
-
-  @media (max-width:480px){
-    .wrap{padding:0 20px;}
-    nav .wrap{height:64px;}
-    .nav-name{font-size:14px;}
-    .nav-btn{padding:9px 14px; font-size:11px;}
-    .lang-btn{padding:8px 11px; font-size:11px;}
-    .hero{padding:40px 0 56px;}
-    .hero-top{gap:20px; margin-bottom:40px;}
-    .avatar{width:88px; height:88px; font-size:30px; border-radius:16px;}
-    .hero-id h1{font-size:24px;}
-    .hero-id p{font-size:14px;}
-    .headline{font-size:38px;}
-    .hero-sub{margin-top:24px; gap:20px;}
-    .hero-sub p{font-size:14.5px;}
-    .stats-row{margin-top:44px; padding-top:28px; gap:18px;}
-    .stat b{font-size:30px;}
-    section{padding:56px 0;}
-    .section-head{margin-bottom:30px;}
-    .section-head h2{font-size:22px;}
-    .project-body{padding:18px 18px 20px;}
-    .tools-grid{grid-template-columns:1fr;}
-    .contact .wrap{padding:64px 20px;}
-    .contact h2{font-size:34px; margin-bottom:26px;}
-    .contact-links a{padding:10px 16px; font-size:12px;}
-  }
-</style>
+  </script>
 </head>
-<body>
+<body data-page="home">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-<nav>
-  <div class="wrap">
-    <span class="nav-name">Hilguener Ferreira Silva</span>
-    <ul class="nav-links">
-      <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
-      <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
-      <li><a href="#tools" data-i18n="navTools">Tools</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button id="langToggle" class="lang-btn" type="button">PT</button>
-      <a class="nav-btn" href="mailto:hilgueneer@gmail.com" data-i18n="navBtn">Say Hello</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-top">
-      <div class="avatar">HF</div>
-      <div class="hero-id">
-        <span class="eyebrow" data-i18n="heroEyebrow">Based in Brazil · Remote-first</span>
-        <h1>Hilguener Ferreira Silva</h1>
-        <p data-i18n="heroBio">A Full Stack Developer who turns messy internal processes into clean, reliable software.</p>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="wrap">
+      <span class="nav-name">Hilguener Ferreira Silva</span>
+      <button id="navToggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
+        <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
+        <li><a href="#tools" data-i18n="navTools">Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="langToggle" class="lang-btn" type="button" aria-label="Switch to Portuguese">PT</button>
+        <a class="nav-btn" href="mailto:hilgueneer@gmail.com" data-i18n="navBtn">Say Hello</a>
       </div>
     </div>
+  </nav>
 
-    <h2 class="headline" data-i18n="headline">Full Stack<br>Developer<span class="accent-word">.</span></h2>
+  <main id="main-content">
+    <header class="hero">
+      <div class="wrap">
+        <div class="hero-top">
+          <div class="avatar" aria-hidden="true">HF</div>
+          <div class="hero-id">
+            <span class="eyebrow" data-i18n="heroEyebrow">Based in Brazil · Remote-first</span>
+            <h1>Hilguener Ferreira Silva</h1>
+            <p data-i18n="heroBio">A Full Stack Developer who turns messy internal processes into clean, reliable software.</p>
+          </div>
+        </div>
 
-    <div class="hero-sub">
-      <p data-i18n="heroSub">Backend, frontend, and data — I build REST APIs, Angular interfaces, and BI dashboards, and I ship and run them myself, from database to deploy.</p>
-      <div class="hero-tags">
-        <span>ASP.NET Core</span>
-        <span>Angular</span>
-        <span>Power BI</span>
-        <span>Linux</span>
-      </div>
-    </div>
+        <h2 class="headline" data-i18n="headline" data-i18n-html>Full Stack<br>Developer<span class="accent-word">.</span></h2>
 
-    <div class="stats-row">
-      <div class="stat"><b>2+</b><span data-i18n="stat1Label">Years Professional Experience</span></div>
-      <div class="stat"><b>4</b><span data-i18n="stat2Label">Projects Shipped</span></div>
-      <div class="stat"><b>GMT-3</b><span data-i18n="stat3Label">Remote-Ready Timezone</span></div>
-    </div>
-  </div>
-</header>
+        <div class="hero-sub">
+          <p data-i18n="heroSub">Backend, frontend, and data — I build REST APIs, Angular interfaces, and BI dashboards, and I ship and run them myself, from database to deploy.</p>
+          <div class="hero-tags" aria-label="Core technologies">
+            <span>ASP.NET Core</span>
+            <span>Angular</span>
+            <span>Power BI</span>
+            <span>Linux</span>
+          </div>
+        </div>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag" data-i18n="projectsTag">Selected Work</span>
-        <h2 data-i18n="projectsHeading">Recent Projects</h2>
-      </div>
-    </div>
-    <div class="project-grid">
-
-      <div class="project-card">
-        <div class="project-thumb thumb-1">QMS · API</div>
-        <div class="project-body">
-          <div class="project-top"><h3 data-i18n="proj1Title">Quality Management System</h3><span class="status live" data-i18n="statusLive">Live</span></div>
-          <p data-i18n="proj1Desc">Layered REST API for internal process management — auth, document management, and action-plan tracking.</p>
-          <a class="link" href="https://github.com/Hilguener/sgq-api" target="_blank" rel="noopener noreferrer" data-i18n="linkRepo">View repository →</a>
+        <div class="stats-row">
+          <div class="stat"><b>2+</b><span data-i18n="stat1Label">Years Professional Experience</span></div>
+          <div class="stat"><b>4</b><span data-i18n="stat2Label">Projects Shipped</span></div>
+          <div class="stat"><b>GMT-3</b><span data-i18n="stat3Label">Remote-Ready Timezone</span></div>
         </div>
       </div>
+    </header>
 
-      <div class="project-card">
-        <div class="project-thumb thumb-2">Recruitment · API</div>
-        <div class="project-body">
-          <div class="project-top"><h3 data-i18n="proj2Title">Recruitment &amp; Selection API</h3><span class="status live" data-i18n="statusLive">Live</span></div>
-          <p data-i18n="proj2Desc">Production-grade API — JWT + refresh tokens, rate limiting, health checks, structured logging.</p>
-          <a class="link" href="https://github.com/Hilguener/RecrutamentoAPI" target="_blank" rel="noopener noreferrer" data-i18n="linkRepo">View repository →</a>
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="tag" data-i18n="projectsTag">Selected Work</span>
+            <h2 id="projects-heading" data-i18n="projectsHeading">Recent Projects</h2>
+          </div>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-thumb thumb-1">QMS · API</div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 data-i18n="proj1Title">Quality Management System</h3>
+                <span class="status live" data-i18n="statusLive">Live</span>
+              </div>
+              <p data-i18n="proj1Desc">Layered REST API for internal process management — auth, document management, and action-plan tracking.</p>
+              <a class="link" href="https://github.com/Hilguener/sgq-api" target="_blank" rel="noopener noreferrer" data-i18n="linkRepo">View repository →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb thumb-2">Recruitment · API</div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 data-i18n="proj2Title">Recruitment &amp; Selection API</h3>
+                <span class="status live" data-i18n="statusLive">Live</span>
+              </div>
+              <p data-i18n="proj2Desc">Production-grade API — JWT + refresh tokens, rate limiting, health checks, structured logging.</p>
+              <a class="link" href="https://github.com/Hilguener/RecrutamentoAPI" target="_blank" rel="noopener noreferrer" data-i18n="linkRepo">View repository →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb thumb-3">Tax · BI</div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 data-i18n="proj3Title">Tax Monitoring Dashboard</h3>
+                <span class="status live" data-i18n="statusLive">Live</span>
+              </div>
+              <p data-i18n="proj3Desc">Power BI dashboard pulling directly from an ERP database to track tax obligations and compliance.</p>
+              <a class="link" href="case-studies.html" data-i18n="linkCase">View case study →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb thumb-4">Cash Flow · BI</div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 data-i18n="proj4Title">Operational Cash Flow BI</h3>
+                <span class="status live" data-i18n="statusLive">Live</span>
+              </div>
+              <p data-i18n="proj4DescLive">Restructured the chart of accounts at the operational level and built a Power BI dashboard on the cleaned data, tracking inflows, outflows, and period-based balances.</p>
+              <a class="link" href="case-studies.html" data-i18n="linkCase">View case study →</a>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="project-card">
-        <div class="project-thumb thumb-3">Tax · BI</div>
-        <div class="project-body">
-          <div class="project-top"><h3 data-i18n="proj3Title">Tax Monitoring Dashboard</h3><span class="status live" data-i18n="statusLive">Live</span></div>
-          <p data-i18n="proj3Desc">Power BI dashboard pulling directly from an ERP database to track tax obligations and compliance.</p>
-          <a class="link" href="case-studies.html" data-i18n="linkCase">View case study →</a>
+    <section id="experience" aria-labelledby="experience-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="tag" data-i18n="expTag">Track Record</span>
+            <h2 id="experience-heading" data-i18n="expHeading">Experience</h2>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="dates" data-i18n="expDates">Jul 2024 — Present</div>
+          <div>
+            <h3 data-i18n="expRole">.NET Full Stack Developer</h3>
+            <div class="company">SPM — Soluções Estratégicas e Sustentáveis</div>
+            <ul>
+              <li data-i18n="expLi1">Design, develop, and maintain internal full-stack business applications across backend and frontend.</li>
+              <li data-i18n="expLi2">Build and maintain Power BI / SQL dashboards for KPI tracking and decision-making support.</li>
+              <li data-i18n="expLi3">Automate internal processes and integrate APIs to improve operational efficiency.</li>
+              <li data-i18n="expLi4">Administer Linux servers, virtual machines, and network infrastructure; provide technical support.</li>
+            </ul>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="project-card">
-        <div class="project-thumb thumb-4">Cash Flow · BI</div>
-        <div class="project-body">
-          <div class="project-top"><h3 data-i18n="proj4Title">Operational Cash Flow BI</h3><span class="status live" data-i18n="statusLive">Live</span></div>
-          <p data-i18n="proj4DescLive">Restructured the chart of accounts at the operational level and built a Power BI dashboard on the cleaned data, tracking inflows, outflows, and period-based balances.</p>
-          <a class="link" href="case-studies.html" data-i18n="linkCase">View case study →</a>
+    <section id="tools" aria-labelledby="tools-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="tag" data-i18n="toolsTag">Toolkit</span>
+            <h2 id="tools-heading" data-i18n="toolsHeading">Tools &amp; Stack</h2>
+          </div>
+        </div>
+        <div class="tools-grid">
+          <div class="tool"><b>ASP.NET Core</b><span data-i18n="catBackend">Backend</span></div>
+          <div class="tool"><b>C#</b><span data-i18n="catLanguage">Language</span></div>
+          <div class="tool"><b>Angular</b><span data-i18n="catFrontend">Frontend</span></div>
+          <div class="tool"><b>TypeScript</b><span data-i18n="catLanguage">Language</span></div>
+          <div class="tool"><b>Power BI</b><span data-i18n="catDataBI">Data &amp; BI</span></div>
+          <div class="tool"><b>SQL</b><span data-i18n="catData">Data</span></div>
+          <div class="tool"><b>PostgreSQL / MySQL</b><span data-i18n="catDatabase">Database</span></div>
+          <div class="tool"><b>Linux</b><span data-i18n="catInfra">Infrastructure</span></div>
+          <div class="tool"><b>NGINX</b><span data-i18n="catInfra">Infrastructure</span></div>
+          <div class="tool"><b>Docker</b><span data-i18n="catInfra">Infrastructure</span></div>
+          <div class="tool"><b>Git</b><span data-i18n="catTooling">Tooling</span></div>
+          <div class="tool"><b>Entity Framework Core</b><span data-i18n="catOrm">ORM</span></div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag" data-i18n="expTag">Track Record</span>
-        <h2 data-i18n="expHeading">Experience</h2>
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="wrap">
+        <h2 id="contact-heading" data-i18n="contactHeading" data-i18n-html>Let's build<br>something<span class="accent-word"> together.</span></h2>
+        <div class="contact-links">
+          <a href="mailto:hilgueneer@gmail.com">hilgueneer@gmail.com</a>
+          <a href="https://www.linkedin.com/in/hilguener-silva/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/Hilguener" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="timeline-item">
-      <div class="dates" data-i18n="expDates">Jul 2024 — Present</div>
-      <div>
-        <h3 data-i18n="expRole">.NET Full Stack Developer</h3>
-        <div class="company">SPM — Soluções Estratégicas e Sustentáveis</div>
-        <ul>
-          <li data-i18n="expLi1">Design, develop, and maintain internal full-stack business applications across backend and frontend.</li>
-          <li data-i18n="expLi2">Build and maintain Power BI / SQL dashboards for KPI tracking and decision-making support.</li>
-          <li data-i18n="expLi3">Automate internal processes and integrate APIs to improve operational efficiency.</li>
-          <li data-i18n="expLi4">Administer Linux servers, virtual machines, and network infrastructure; provide technical support.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="tools">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag" data-i18n="toolsTag">Toolkit</span>
-        <h2 data-i18n="toolsHeading">Tools &amp; Stack</h2>
-      </div>
-    </div>
-    <div class="tools-grid">
-      <div class="tool"><b>ASP.NET Core</b><span data-i18n="catBackend">Backend</span></div>
-      <div class="tool"><b>C#</b><span data-i18n="catLanguage">Language</span></div>
-      <div class="tool"><b>Angular</b><span data-i18n="catFrontend">Frontend</span></div>
-      <div class="tool"><b>TypeScript</b><span data-i18n="catLanguage">Language</span></div>
-      <div class="tool"><b>Power BI</b><span data-i18n="catDataBI">Data &amp; BI</span></div>
-      <div class="tool"><b>SQL</b><span data-i18n="catData">Data</span></div>
-      <div class="tool"><b>PostgreSQL / MySQL</b><span data-i18n="catDatabase">Database</span></div>
-      <div class="tool"><b>Linux</b><span data-i18n="catInfra">Infrastructure</span></div>
-      <div class="tool"><b>NGINX</b><span data-i18n="catInfra">Infrastructure</span></div>
-      <div class="tool"><b>Docker</b><span data-i18n="catInfra">Infrastructure</span></div>
-      <div class="tool"><b>Git</b><span data-i18n="catTooling">Tooling</span></div>
-      <div class="tool"><b>Entity Framework Core</b><span data-i18n="catOrm">ORM</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <h2 data-i18n="contactHeading">Let's build<br>something<span class="accent-word"> together.</span></h2>
-    <div class="contact-links">
-      <a href="mailto:hilgueneer@gmail.com">hilgueneer@gmail.com</a>
-      <a href="https://www.linkedin.com/in/hilguener-silva/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/Hilguener" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </div>
-</section>
-
-<footer data-i18n="footerText">Lindolfo Collor, RS, Brazil — English B2 · Portuguese (Native)</footer>
-
-<script>
-  var i18n = {
-    navProjects:   { en:"Projects",  pt:"Projetos" },
-    navExperience: { en:"Experience", pt:"Experiência" },
-    navTools:      { en:"Tools", pt:"Ferramentas" },
-    navBtn:        { en:"Say Hello", pt:"Fale Comigo" },
-
-    heroEyebrow: { en:"Based in Brazil · Remote-first", pt:"Baseado no Brasil · Remoto" },
-    heroBio: {
-      en:"A Full Stack Developer who turns messy internal processes into clean, reliable software.",
-      pt:"Um Desenvolvedor Full Stack que transforma processos internos bagunçados em software limpo e confiável."
-    },
-    headline: {
-      en:'Full Stack<br>Developer<span class="accent-word">.</span>',
-      pt:'Desenvolvedor<br>Full Stack<span class="accent-word">.</span>'
-    },
-    heroSub: {
-      en:"Backend, frontend, and data — I build REST APIs, Angular interfaces, and BI dashboards, and I ship and run them myself, from database to deploy.",
-      pt:"Backend, frontend e dados — eu construo APIs REST, interfaces em Angular e dashboards de BI, e cuido de tudo sozinho, do banco de dados ao deploy."
-    },
-
-    stat1Label: { en:"Years Professional Experience", pt:"Anos de Experiência Profissional" },
-    stat2Label: { en:"Projects Shipped", pt:"Projetos Entregues" },
-    stat3Label: { en:"Remote-Ready Timezone", pt:"Fuso Horário Pronto para Remoto" },
-
-    projectsTag: { en:"Selected Work", pt:"Trabalhos Selecionados" },
-    projectsHeading: { en:"Recent Projects", pt:"Projetos Recentes" },
-
-    statusLive: { en:"Live", pt:"Ativo" },
-    statusProgress: { en:"In Progress", pt:"Em Andamento" },
-    linkRepo: { en:"View repository →", pt:"Ver repositório →" },
-    linkCase: { en:"View case study →", pt:"Ver estudo de caso →" },
-
-    proj1Title: { en:"Quality Management System", pt:"Sistema de Gestão da Qualidade" },
-    proj1Desc: {
-      en:"Layered REST API for internal process management — auth, document management, and action-plan tracking.",
-      pt:"API REST em camadas para gestão de processos internos — autenticação, gestão de documentos e planos de ação."
-    },
-
-    proj2Title: { en:"Recruitment &amp; Selection API", pt:"API de Recrutamento e Seleção" },
-    proj2Desc: {
-      en:"Production-grade API — JWT + refresh tokens, rate limiting, health checks, structured logging.",
-      pt:"API de nível produtivo — JWT + refresh tokens, rate limiting, health checks, logging estruturado."
-    },
-
-    proj3Title: { en:"Tax Monitoring Dashboard", pt:"Dashboard de Monitoramento Fiscal" },
-    proj3Desc: {
-      en:"Power BI dashboard pulling directly from an ERP database to track tax obligations and compliance.",
-      pt:"Dashboard Power BI que consome dados diretamente de um ERP para monitorar obrigações fiscais e conformidade."
-    },
-
-    proj4Title: { en:"Operational Cash Flow BI", pt:"BI de Fluxo de Caixa Operacional" },
-    proj4DescLive: {
-      en:"Restructured the chart of accounts at the operational level and built a Power BI dashboard on the cleaned data, tracking inflows, outflows, and period-based balances.",
-      pt:"Reestruturação do plano de contas no nível operacional e construção de um dashboard Power BI sobre os dados já organizados, com acompanhamento de entradas, saídas e saldos por período."
-    },
-
-    expTag: { en:"Track Record", pt:"Histórico" },
-    expHeading: { en:"Experience", pt:"Experiência" },
-    expDates: { en:"Jul 2024 — Present", pt:"Jul 2024 — Atual" },
-    expRole: { en:".NET Full Stack Developer", pt:"Desenvolvedor Full Stack .NET" },
-    expLi1: {
-      en:"Design, develop, and maintain internal full-stack business applications across backend and frontend.",
-      pt:"Projeto, desenvolvimento e manutenção de aplicações corporativas full-stack internas, atuando em backend e frontend."
-    },
-    expLi2: {
-      en:"Build and maintain Power BI / SQL dashboards for KPI tracking and decision-making support.",
-      pt:"Construção e manutenção de dashboards Power BI / SQL para acompanhamento de KPIs e apoio à decisão."
-    },
-    expLi3: {
-      en:"Automate internal processes and integrate APIs to improve operational efficiency.",
-      pt:"Automação de processos internos e integração de APIs para melhorar a eficiência operacional."
-    },
-    expLi4: {
-      en:"Administer Linux servers, virtual machines, and network infrastructure; provide technical support.",
-      pt:"Administração de servidores Linux, máquinas virtuais e infraestrutura de rede; suporte técnico."
-    },
-
-    toolsTag: { en:"Toolkit", pt:"Ferramentas" },
-    toolsHeading: { en:"Tools &amp; Stack", pt:"Ferramentas &amp; Stack" },
-
-    catBackend:  { en:"Backend", pt:"Backend" },
-    catLanguage: { en:"Language", pt:"Linguagem" },
-    catFrontend: { en:"Frontend", pt:"Frontend" },
-    catDataBI:   { en:"Data &amp; BI", pt:"Dados &amp; BI" },
-    catData:     { en:"Data", pt:"Dados" },
-    catDatabase: { en:"Database", pt:"Banco de Dados" },
-    catInfra:    { en:"Infrastructure", pt:"Infraestrutura" },
-    catOrm:      { en:"ORM", pt:"ORM" },
-    catTooling:  { en:"Tooling", pt:"Ferramentas" },
-
-    contactHeading: {
-      en:'Let\'s build<br>something<span class="accent-word"> together.</span>',
-      pt:'Vamos construir<br>algo<span class="accent-word"> juntos.</span>'
-    },
-
-    footerText: {
-      en:"Lindolfo Collor, RS, Brazil — English B2 · Portuguese (Native)",
-      pt:"Lindolfo Collor, RS, Brasil — Inglês B2 · Português (Nativo)"
-    }
-  };
-
-  var currentLang = "en";
-
-  function applyLang(lang){
-    document.documentElement.lang = (lang === "en") ? "en" : "pt-BR";
-    document.querySelectorAll("[data-i18n]").forEach(function(el){
-      var key = el.getAttribute("data-i18n");
-      if (i18n[key] && i18n[key][lang] !== undefined){
-        el.innerHTML = i18n[key][lang];
-      }
-    });
-    document.getElementById("langToggle").textContent = (lang === "en") ? "PT" : "EN";
-    currentLang = lang;
-  }
-
-  document.getElementById("langToggle").addEventListener("click", function(){
-    applyLang(currentLang === "en" ? "pt" : "en");
-  });
-
-  applyLang("en");
-</script>
-
+  <footer>
+    <span data-i18n="footerText">Lindolfo Collor, RS, Brazil — English B2 · Portuguese (Native)</span>
+  </footer>
 </body>
 </html>

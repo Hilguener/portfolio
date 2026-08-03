@@ -1,737 +1,174 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta name="description" content="Case studies of BI and data engineering work by Hilguener Ferreira Silva." />
   <title>Case Studies — Hilguener Ferreira Silva</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-
-  <style>
-    :root {
-
-      --ink: #0B0C0E;
-
-      --ink-soft: #5B5E66;
-
-      --paper: #FAFAF8;
-
-      --line: #E4E4DF;
-
-      --card: #FFFFFF;
-
-      --accent: #C7FF5C;
-
-      --accent-ink: #3A4A0E;
-
-      --max: 920px;
-
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.65;
-    }
-
-    .mono {
-      font-family: 'IBM Plex Mono', monospace;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: 'Archivo', sans-serif;
-      margin: 0;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(11, 12, 14, 0.92);
-      backdrop-filter: blur(8px);
-    }
-
-    nav .wrap {
-      max-width: 1160px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-
-    .nav-name {
-      color: #fff;
-      font-family: 'Archivo';
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .back-link {
-
-      font-family: 'IBM Plex Mono';
-      font-size: 12.5px;
-      color: rgba(255, 255, 255, 0.75);
-      text-decoration: none;
-
-      display: flex;
-      align-items: center;
-      gap: 6px;
-
-    }
-
-    .back-link:hover {
-      color: #fff;
-    }
-
-    .lang-btn {
-
-      font-family: 'IBM Plex Mono';
-      font-size: 12px;
-      letter-spacing: .04em;
-
-      background: transparent;
-      color: #fff;
-      padding: 9px 14px;
-      border-radius: 100px;
-
-      border: 1px solid rgba(255, 255, 255, .28);
-      cursor: pointer;
-      transition: all .15s ease;
-
-    }
-
-    .lang-btn:hover {
-      border-color: rgba(255, 255, 255, .6);
-    }
-
-
-
-    header.page-head {
-      padding: 72px 0 56px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .eyebrow {
-
-      font-family: 'IBM Plex Mono';
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-
-      color: var(--accent-ink);
-      background: var(--accent);
-      display: inline-block;
-      padding: 5px 12px;
-      border-radius: 100px;
-      margin-bottom: 20px;
-
-    }
-
-    header.page-head h1 {
-      font-size: clamp(30px, 5vw, 44px);
-      margin-bottom: 14px;
-    }
-
-    header.page-head p {
-      color: var(--ink-soft);
-      font-size: 16px;
-      max-width: 640px;
-      margin: 0;
-    }
-
-
-
-    .case {
-      padding: 72px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .case:last-child {
-      border-bottom: none;
-    }
-
-    .case-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
-
-    .case-top h2 {
-      font-size: clamp(22px, 3vw, 28px);
-    }
-
-    .case-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .case-tags span {
-
-      font-family: 'IBM Plex Mono';
-      font-size: 11px;
-      background: var(--card);
-      border: 1px solid var(--line);
-
-      color: var(--ink-soft);
-      padding: 5px 10px;
-      border-radius: 100px;
-
-    }
-
-    .case-sub {
-      color: var(--ink-soft);
-      font-size: 14.5px;
-      margin: 6px 0 32px;
-    }
-
-
-
-    .block {
-      margin-bottom: 28px;
-    }
-
-    .block .label {
-
-      font-family: 'IBM Plex Mono';
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-
-      color: var(--accent-ink);
-      background: var(--accent);
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 4px;
-      margin-bottom: 12px;
-
-    }
-
-    .block p {
-      margin: 0;
-      font-size: 15.5px;
-      color: var(--ink);
-      max-width: 680px;
-    }
-
-    .block p+p {
-      margin-top: 10px;
-    }
-
-
-
-    .placeholder {
-
-      border: 1.5px dashed var(--line);
-      border-radius: 14px;
-      padding: 40px 24px;
-      text-align: center;
-
-      color: var(--ink-soft);
-      font-size: 13.5px;
-      margin-top: 8px;
-      background: var(--card);
-
-    }
-
-    .placeholder b {
-      display: block;
-      color: var(--ink);
-      font-size: 14.5px;
-      margin-bottom: 6px;
-      font-family: 'Archivo';
-    }
-
-
-
-    .disclaimer {
-
-      margin-top: 60px;
-      padding: 22px 24px;
-      border-radius: 14px;
-      background: var(--card);
-      border: 1px solid var(--line);
-
-      font-size: 13.5px;
-      color: var(--ink-soft);
-
-    }
-
-    .disclaimer b {
-      color: var(--ink);
-    }
-
-
-
-    footer {
-      padding: 56px 0;
-      text-align: center;
-      color: var(--ink-soft);
-      font-family: 'IBM Plex Mono';
-      font-size: 12.5px;
-    }
-
-    footer a {
-      text-decoration: underline;
-    }
-
-
-
-    @media (max-width:600px) {
-
-      header.page-head {
-        padding: 48px 0 40px;
-      }
-
-      .case {
-        padding: 48px 0;
-      }
-
-    }
-  </style>
-
+  <link rel="canonical" href="https://hilguener.dev/case-studies.html" />
+  <meta name="theme-color" content="#0b0c0e" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Case Studies — Hilguener Ferreira Silva" />
+  <meta property="og:description" content="Case studies of BI and data engineering work by Hilguener Ferreira Silva." />
+  <meta property="og:url" content="https://hilguener.dev/case-studies.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Case Studies — Hilguener Ferreira Silva" />
+  <meta name="twitter:description" content="Case studies of BI and data engineering work by Hilguener Ferreira Silva." />
+
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 
-<body>
+<body class="case-study-page" data-page="case-studies">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-
-
-  <nav>
-
+  <nav class="site-nav" aria-label="Primary">
     <div class="wrap">
-
       <span class="nav-name">Hilguener Ferreira Silva</span>
-
-      <div style="display:flex;align-items:center;gap:10px;">
-
-        <button id="langToggle" class="lang-btn" type="button">PT</button>
-
+      <div class="nav-actions">
+        <button id="langToggle" class="lang-btn" type="button" aria-label="Switch to Portuguese">PT</button>
         <a class="back-link" href="index.html" data-i18n="backLink">← Back to portfolio</a>
-
       </div>
-
     </div>
-
   </nav>
 
+  <main id="main-content">
+    <header class="page-head">
+      <div class="wrap">
+        <span class="eyebrow" data-i18n="eyebrow">Data &amp; BI Case Studies</span>
+        <h1 data-i18n="pageTitle">Business Intelligence Work</h1>
+        <p data-i18n="pageIntro">These four dashboards were built for internal use. Since the underlying data belongs to the company, the write-ups below focus on the problem, the approach, and the outcome — not the live figures.</p>
+      </div>
+    </header>
 
+    <section class="wrap">
 
-  <header class="page-head">
+      <article class="case">
+        <div class="case-top">
+          <h2 data-i18n="case1Title">Tax Monitoring Dashboard</h2>
+          <div class="case-tags"><span>Power BI</span><span>SQL</span><span>ERP Integration</span></div>
+        </div>
+        <p class="case-sub" data-i18n="caseStatusLive">Status: Live</p>
 
-    <div class="wrap">
+        <div class="block">
+          <span class="label" data-i18n="labelProblem">Problem</span>
+          <p data-i18n="case1Problem">Tax obligations and compliance data lived inside the company's ERP system, but there was no consolidated way to monitor them. Checking tax status meant navigating the ERP directly or manually cross-referencing exports — slow, error-prone, and hard to keep current.</p>
+        </div>
 
-      <span class="eyebrow" data-i18n="eyebrow">Data &amp; BI Case Studies</span>
+        <div class="block">
+          <span class="label" data-i18n="labelApproach">Approach</span>
+          <p data-i18n="case1Approach">I connected directly to the ERP's underlying database and wrote SQL queries to extract and consolidate the relevant tax records. From there, I modeled the data in Power BI and built a dashboard focused on clarity: current obligations, due dates, and compliance status, refreshed from the source rather than manual exports.</p>
+        </div>
 
-      <h1 data-i18n="pageTitle">Business Intelligence Work</h1>
+        <div class="block">
+          <span class="label" data-i18n="labelResult">Result</span>
+          <p data-i18n="case1Result">Tax obligations became visible in one place, sourced directly from the system of record instead of manual reconciliation — reducing the chance of something being missed or checked against stale data.</p>
+        </div>
 
-      <p data-i18n="pageIntro">These two dashboards were built for internal use. Since the underlying data belongs to
-        the company, the write-ups below focus on the problem, the approach, and the outcome — not the live figures.</p>
+        <div class="placeholder">
+          <b data-i18n="placeholderTitle">Screenshot coming soon</b>
+          <span data-i18n="case1PlaceholderDesc">Recreating this dashboard with synthetic data in Power BI Desktop, since the original contains company tax records.</span>
+        </div>
+      </article>
 
-    </div>
+      <article class="case">
+        <div class="case-top">
+          <h2 data-i18n="case2Title">Operational Cash Flow BI</h2>
+          <div class="case-tags"><span>Power BI</span><span>SQL</span><span>Data Modeling</span></div>
+        </div>
+        <p class="case-sub" data-i18n="caseStatusLive">Status: Live</p>
 
-  </header>
+        <div class="block">
+          <span class="label" data-i18n="labelProblem">Problem</span>
+          <p data-i18n="case2Problem">The company's chart of accounts hadn't been consistently maintained — transactions were classified inconsistently at the source, which meant any cash flow report built directly on top of it would be unreliable, regardless of how good the dashboard looked.</p>
+        </div>
 
+        <div class="block">
+          <span class="label" data-i18n="labelApproach">Approach</span>
+          <p data-i18n="case2Approach">Instead of starting with the dashboard, I started with the data. I restructured the chart of accounts at the operational level and defined clear reclassification rules so transactions would be consolidated and categorized correctly at the source. Only after that foundation was solid did I build the Power BI dashboard on top of it, with measures for inflows, outflows, and period-based balances.</p>
+        </div>
 
+        <div class="block">
+          <span class="label" data-i18n="labelResult">Result</span>
+          <p data-i18n="case2Result">The company now has a structurally reliable base for operational cash flow reporting — the kind of groundwork that matters more than the dashboard itself, since a clean visualization on top of messy data is still misleading.</p>
+        </div>
 
-  <section class="wrap">
+        <div class="placeholder">
+          <b data-i18n="placeholderTitle">Screenshot coming soon</b>
+          <span data-i18n="case2PlaceholderDesc">Recreating this dashboard with synthetic data in Power BI Desktop, since the original contains company financial data.</span>
+        </div>
+      </article>
 
+      <article class="case">
+        <div class="case-top">
+          <h2 data-i18n="case3Title">Accounts Receivable &amp; Payable Dashboard</h2>
+          <div class="case-tags"><span>Power BI</span><span>SQL</span></div>
+        </div>
+        <p class="case-sub" data-i18n="caseStatusLive">Status: Live</p>
 
+        <div class="block">
+          <span class="label" data-i18n="labelProblem">Problem</span>
+          <p data-i18n="case3Problem">Receivables and payables data were scattered across different systems, with no consolidated view — making it hard to answer a simple question at a glance: what's coming in, what's due, and what the short-term cash position looks like.</p>
+        </div>
 
-    <article class="case">
+        <div class="block">
+          <span class="label" data-i18n="labelApproach">Approach</span>
+          <p data-i18n="case3Approach">I consolidated receivables and payables data from the source systems into a single Power BI dashboard, structuring it to show upcoming receipts and payments side by side, so the finance team could see short-term cash position at a glance instead of checking multiple sources.</p>
+        </div>
 
-      <div class="case-top">
+        <div class="block">
+          <span class="label" data-i18n="labelResult">Result</span>
+          <p data-i18n="case3Result">The finance team gained one consolidated view of receivables and payables, replacing scattered manual checks with a single reliable dashboard for day-to-day cash visibility.</p>
+        </div>
 
-        <h2 data-i18n="case1Title">Tax Monitoring Dashboard</h2>
+        <div class="placeholder">
+          <b data-i18n="placeholderTitle">Screenshot coming soon</b>
+          <span data-i18n="case3PlaceholderDesc">Recreating this dashboard with synthetic data in Power BI Desktop, since the original contains company financial data.</span>
+        </div>
+      </article>
 
-        <div class="case-tags"><span>Power BI</span><span>SQL</span><span>ERP Integration</span></div>
+      <article class="case">
+        <div class="case-top">
+          <h2 data-i18n="case4Title">Sales Commission &amp; Goals Dashboard</h2>
+          <div class="case-tags"><span>Power BI</span><span>DAX</span><span>PostgreSQL</span></div>
+        </div>
+        <p class="case-sub" data-i18n="caseStatusLive">Status: Live</p>
 
+        <div class="block">
+          <span class="label" data-i18n="labelProblem">Problem</span>
+          <p data-i18n="case4Problem">Sales commission was calculated manually in a spreadsheet — slow and error-prone. The underlying business logic was also non-trivial: goal attainment is measured against the month an invoice is issued, but commission is only paid once the payment is actually received, sometimes in installments spread across several months, always using the rate locked in at the original invoice month.</p>
+        </div>
+
+        <div class="block">
+          <span class="label" data-i18n="labelApproach">Approach</span>
+          <p data-i18n="case4Approach">I built a star-schema semantic model directly on top of the ERP database, separating goals, invoiced revenue, and commission receipts into fact tables with their own grain and timing. I used DAX with time-shifted filter context to lock each installment's commission rate to its original invoice month, and documented the business rules and edge cases discovered while validating the numbers against the company's legacy reports.</p>
+        </div>
+
+        <div class="block">
+          <span class="label" data-i18n="labelResult">Result</span>
+          <p data-i18n="case4Result">Replaced a manual, error-prone process with an automated, auditable dashboard — every commission value traceable line by line back to its source data.</p>
+        </div>
+
+        <div class="placeholder">
+          <b data-i18n="placeholderTitle">Screenshot coming soon</b>
+          <span data-i18n="case4PlaceholderDesc">Recreating this dashboard with synthetic data in Power BI Desktop, since the original contains company sales and commission data.</span>
+        </div>
+      </article>
+
+      <div class="disclaimer">
+        <b data-i18n="disclaimerLabel">A note on the data:</b>
+        <span data-i18n="disclaimerText"> All four dashboards were built using real internal company data, which can't be shared publicly. Once the synthetic-data versions are ready, they'll replace the placeholders above with screenshots or a short walkthrough — same structure and logic, fictional numbers.</span>
       </div>
 
-      <p class="case-sub" data-i18n="statusLive">Status: Live — in active use internally</p>
-
-
-
-      <div class="block">
-
-        <span class="label" data-i18n="labelProblem">Problem</span>
-
-        <p data-i18n="case1Problem">Tax obligations and compliance data lived inside the company's ERP system, but there
-          was no consolidated way to monitor them. Checking tax status meant navigating the ERP directly or manually
-          cross-referencing exports — slow, error-prone, and hard to keep current.</p>
-
-      </div>
-
-
-
-      <div class="block">
-
-        <span class="label" data-i18n="labelApproach">Approach</span>
-
-        <p data-i18n="case1Approach">I connected directly to the ERP's underlying database and wrote SQL queries to
-          extract and consolidate the relevant tax records. From there, I modeled the data in Power BI and built a
-          dashboard focused on clarity: current obligations, due dates, and compliance status, refreshed from the source
-          rather than manual exports.</p>
-
-      </div>
-
-
-
-      <div class="block">
-
-        <span class="label" data-i18n="labelResult">Result</span>
-
-        <p data-i18n="case1Result">Tax obligations became visible in one place, sourced directly from the system of
-          record instead of manual reconciliation — reducing the chance of something being missed or checked against
-          stale data.</p>
-
-      </div>
-
-
-
-      <div class="placeholder">
-
-        <b data-i18n="placeholderTitle">Screenshot coming soon</b>
-
-        <span data-i18n="case1PlaceholderDesc">Recreating this dashboard with synthetic data in Power BI Desktop, since
-          the original contains company tax records.</span>
-
-      </div>
-
-    </article>
-
-
-
-    <article class="case">
-
-      <div class="case-top">
-
-        <h2 data-i18n="case2Title">Operational Cash Flow BI</h2>
-
-        <div class="case-tags"><span>Power BI</span><span>SQL</span><span>Data Modeling</span></div>
-
-      </div>
-
-      <p class="case-sub" data-i18n="statusLive">Status: Live — in active use internally</p>
-
-
-
-      <div class="block">
-
-        <span class="label" data-i18n="labelProblem">Problem</span>
-
-        <p data-i18n="case2Problem">The company's chart of accounts hadn't been consistently maintained — transactions
-          were classified inconsistently at the source, which meant any cash flow report built directly on top of it
-          would be unreliable, regardless of how good the dashboard looked.</p>
-
-      </div>
-
-
-
-      <div class="block">
-
-        <span class="label" data-i18n="labelApproach">Approach</span>
-
-        <p data-i18n="case2Approach">Instead of starting with the dashboard, I started with the data. I restructured the
-          chart of accounts at the operational level and defined clear reclassification rules so transactions would be
-          consolidated and categorized correctly at the source. Only after that foundation was solid did I build the
-          Power BI dashboard on top of it, with measures for inflows, outflows, and period-based balances.</p>
-
-      </div>
-
-
-
-      <div class="block">
-
-        <span class="label" data-i18n="labelResult">Result</span>
-
-        <p data-i18n="case2Result">The company now has a structurally reliable base for operational cash flow reporting
-          — the kind of groundwork that matters more than the dashboard itself, since a clean visualization on top of
-          messy data is still misleading.</p>
-
-      </div>
-
-
-
-      <div class="placeholder">
-
-        <b data-i18n="placeholderTitle">Screenshot coming soon</b>
-
-        <span data-i18n="case2PlaceholderDesc">Recreating this dashboard with synthetic data in Power BI Desktop, since
-          the original contains company financial data.</span>
-
-      </div>
-
-    </article>
-
-    <article class="case">
-    <div class="case-top">
-      <h2 data-i18n="case3Title">Accounts Receivable &amp; Payable Dashboard</h2>
-      <div class="case-tags"><span>Power BI</span><span>SQL</span></div>
-    </div>
-    <p class="case-sub" data-i18n="statusLive">Status: Live — in active use internally</p>
-
-    <div class="block">
-      <span class="label" data-i18n="labelProblem">Problem</span>
-      <p data-i18n="case3Problem">Receivables and payables data were scattered across different systems, with no consolidated view — making it hard to answer a simple question at a glance: what's coming in, what's due, and what the short-term cash position looks like.</p>
-    </div>
-
-    <div class="block">
-      <span class="label" data-i18n="labelApproach">Approach</span>
-      <p data-i18n="case3Approach">I consolidated receivables and payables data from the source systems into a single Power BI dashboard, structuring it to show upcoming receipts and payments side by side, so the finance team could see short-term cash position at a glance instead of checking multiple sources.</p>
-    </div>
-
-    <div class="block">
-      <span class="label" data-i18n="labelResult">Result</span>
-      <p data-i18n="case3Result">The finance team gained one consolidated view of receivables and payables, replacing scattered manual checks with a single reliable dashboard for day-to-day cash visibility.</p>
-    </div>
-
-    <div class="placeholder">
-      <b data-i18n="placeholderTitle">Screenshot coming soon</b>
-      <span data-i18n="case3PlaceholderDesc">Recreating this dashboard with synthetic data in Power BI Desktop, since the original contains company financial data.</span>
-    </div>
-  </article>
-
-
-
-    <div class="disclaimer">
-
-      <b data-i18n="disclaimerLabel">A note on the data:</b>
-
-      <span data-i18n="disclaimerText"> Both dashboards were built using real internal company data, which can't be
-        shared publicly. Once the synthetic-data versions are ready, they'll replace the placeholders above with
-        screenshots or a short walkthrough — same structure and logic, fictional numbers.</span>
-
-    </div>
-
-  </section>
-
-
-
-  <footer>
-
-    <span data-i18n="footerText">Have questions about either project?</span> <a
-      href="mailto:hilgueneer@gmail.com">hilgueneer@gmail.com</a>
-
-  </footer>
-
-
-
-  <script>
-
-    var i18n = {
-
-      backLink: { en: "← Back to portfolio", pt: "← Voltar ao portfólio" },
-
-      eyebrow: { en: "Data &amp; BI Case Studies", pt: "Estudos de Caso — Dados &amp; BI" },
-
-      pageTitle: { en: "Business Intelligence Work", pt: "Trabalho de Business Intelligence" },
-
-      pageIntro: {
-
-        en: "These two dashboards were built for internal use. Since the underlying data belongs to the company, the write-ups below focus on the problem, the approach, and the outcome — not the live figures.",
-
-        pt: "Esses dois dashboards foram construídos para uso interno. Como os dados pertencem à empresa, os textos abaixo focam no problema, na abordagem e no resultado — não nos números reais."
-
-      },
-
-
-
-      statusLive: { en: "Status: Live — in active use internally", pt: "Status: Ativo — em uso interno" },
-
-      labelProblem: { en: "Problem", pt: "Problema" },
-
-      labelApproach: { en: "Approach", pt: "Abordagem" },
-
-      labelResult: { en: "Result", pt: "Resultado" },
-
-      placeholderTitle: { en: "Screenshot coming soon", pt: "Print em breve" },
-
-
-
-      case1Title: { en: "Tax Monitoring Dashboard", pt: "Dashboard de Monitoramento Fiscal" },
-
-      case1Problem: {
-
-        en: "Tax obligations and compliance data lived inside the company's ERP system, but there was no consolidated way to monitor them. Checking tax status meant navigating the ERP directly or manually cross-referencing exports — slow, error-prone, and hard to keep current.",
-
-        pt: "As obrigações fiscais e os dados de conformidade estavam dentro do sistema ERP da empresa, mas não havia uma forma consolidada de monitorá-los. Verificar o status fiscal significava navegar diretamente no ERP ou cruzar exportações manualmente — lento, sujeito a erros e difícil de manter atualizado."
-
-      },
-
-      case1Approach: {
-
-        en: "I connected directly to the ERP's underlying database and wrote SQL queries to extract and consolidate the relevant tax records. From there, I modeled the data in Power BI and built a dashboard focused on clarity: current obligations, due dates, and compliance status, refreshed from the source rather than manual exports.",
-
-        pt: "Conectei diretamente ao banco de dados do ERP e escrevi consultas SQL para extrair e consolidar os registros fiscais relevantes. A partir disso, modelei os dados no Power BI e construí um dashboard focado em clareza: obrigações atuais, prazos e status de conformidade, atualizados direto da fonte em vez de exportações manuais."
-
-      },
-
-      case1Result: {
-
-        en: "Tax obligations became visible in one place, sourced directly from the system of record instead of manual reconciliation — reducing the chance of something being missed or checked against stale data.",
-
-        pt: "As obrigações fiscais passaram a ficar visíveis em um só lugar, direto da fonte de dados oficial em vez de conciliação manual — reduzindo a chance de algo passar despercebido ou ser verificado com dado desatualizado."
-
-      },
-
-      case1PlaceholderDesc: {
-
-        en: "Recreating this dashboard with synthetic data in Power BI Desktop, since the original contains company tax records.",
-
-        pt: "Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém registros fiscais reais da empresa."
-
-      },
-
-
-
-      case2Title: { en: "Operational Cash Flow BI", pt: "BI de Fluxo de Caixa Operacional" },
-
-      case2Problem: {
-
-        en: "The company's chart of accounts hadn't been consistently maintained — transactions were classified inconsistently at the source, which meant any cash flow report built directly on top of it would be unreliable, regardless of how good the dashboard looked.",
-
-        pt: "O plano de contas da empresa não vinha sendo mantido de forma consistente — as transações eram classificadas de maneira inconsistente na origem, o que tornava qualquer relatório de fluxo de caixa construído em cima disso pouco confiável, por melhor que o dashboard parecesse."
-
-      },
-
-      case2Approach: {
-
-        en: "Instead of starting with the dashboard, I started with the data. I restructured the chart of accounts at the operational level and defined clear reclassification rules so transactions would be consolidated and categorized correctly at the source. Only after that foundation was solid did I build the Power BI dashboard on top of it, with measures for inflows, outflows, and period-based balances.",
-
-        pt: "Em vez de começar pelo dashboard, comecei pelos dados. Reestruturei o plano de contas no nível operacional e defini regras claras de reclassificação para que as transações fossem consolidadas e categorizadas corretamente na origem. Só depois que essa base ficou sólida construí o dashboard no Power BI, com medidas de entradas, saídas e saldos por período."
-
-      },
-
-      case2Result: {
-
-        en: "The company now has a structurally reliable base for operational cash flow reporting — the kind of groundwork that matters more than the dashboard itself, since a clean visualization on top of messy data is still misleading.",
-
-        pt: "A empresa agora tem uma base estruturalmente confiável para o relatório de fluxo de caixa operacional — o tipo de trabalho de base que importa mais do que o dashboard em si, já que uma visualização bonita em cima de dado bagunçado ainda engana."
-
-      },
-
-      case2PlaceholderDesc: {
-
-        en: "Recreating this dashboard with synthetic data in Power BI Desktop, since the original contains company financial data.",
-
-        pt: "Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém dados financeiros reais da empresa."
-
-      },
-
-      case3Title: { en:"Accounts Receivable &amp; Payable Dashboard", pt:"Painel de Contas a Receber e a Pagar" },
-    case3Problem: {
-      en:"Receivables and payables data were scattered across different systems, with no consolidated view — making it hard to answer a simple question at a glance: what's coming in, what's due, and what the short-term cash position looks like.",
-      pt:"Os dados de contas a receber e a pagar estavam espalhados em sistemas diferentes, sem uma visão consolidada — o que dificultava responder, de forma rápida, uma pergunta simples: o que está entrando, o que está vencendo, e qual a posição de caixa no curto prazo."
-    },
-    case3Approach: {
-      en:"I consolidated receivables and payables data from the source systems into a single Power BI dashboard, structuring it to show upcoming receipts and payments side by side, so the finance team could see short-term cash position at a glance instead of checking multiple sources.",
-      pt:"Consolidei os dados de contas a receber e a pagar dos sistemas de origem em um único dashboard no Power BI, estruturado para mostrar recebimentos e pagamentos futuros lado a lado, permitindo que o time financeiro visse a posição de caixa de curto prazo rapidamente, em vez de checar várias fontes."
-    },
-    case3Result: {
-      en:"The finance team gained one consolidated view of receivables and payables, replacing scattered manual checks with a single reliable dashboard for day-to-day cash visibility.",
-      pt:"O time financeiro passou a ter uma visão única e consolidada de contas a receber e a pagar, substituindo checagens manuais espalhadas por um dashboard confiável para acompanhar o caixa no dia a dia."
-    },
-    case3PlaceholderDesc: {
-      en:"Recreating this dashboard with synthetic data in Power BI Desktop, since the original contains company financial data.",
-      pt:"Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém dados financeiros reais da empresa."
-    },
-
-
-
-      disclaimerLabel: { en: "A note on the data:", pt: "Uma observação sobre os dados:" },
-
-      disclaimerText: {
-
-        en: " Both dashboards were built using real internal company data, which can't be shared publicly. Once the synthetic-data versions are ready, they'll replace the placeholders above with screenshots or a short walkthrough — same structure and logic, fictional numbers.",
-
-        pt: " Os dois dashboards foram construídos usando dados internos reais da empresa, que não podem ser compartilhados publicamente. Quando as versões com dado sintético estiverem prontas, elas vão substituir os placeholders acima por prints ou um vídeo curto — mesma estrutura e lógica, números fictícios."
-
-      },
-
-
-
-      footerText: { en: "Have questions about either project?", pt: "Tem dúvidas sobre algum dos projetos?" }
-
-    };
-
-
-
-    var currentLang = "en";
-
-
-
-    function applyLang(lang) {
-
-      document.documentElement.lang = (lang === "en") ? "en" : "pt-BR";
-
-      document.querySelectorAll("[data-i18n]").forEach(function (el) {
-
-        var key = el.getAttribute("data-i18n");
-
-        if (i18n[key] && i18n[key][lang] !== undefined) {
-
-          el.innerHTML = i18n[key][lang];
-
-        }
-
-      });
-
-      document.getElementById("langToggle").textContent = (lang === "en") ? "PT" : "EN";
-
-      currentLang = lang;
-
-    }
-
-
-
-    document.getElementById("langToggle").addEventListener("click", function () {
-
-      applyLang(currentLang === "en" ? "pt" : "en");
-
-    });
-
-
-
-    applyLang("en");
-
-  </script>
-
-
-
+    </section>
+
+    <footer class="case-study-footer">
+      <span data-i18n="footerText">Have questions about any of these projects?</span> <a href="mailto:hilgueneer@gmail.com">hilgueneer@gmail.com</a>
+    </footer>
+  </main>
 </body>
-
 </html>
