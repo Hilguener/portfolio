@@ -29,13 +29,13 @@ const i18n = {
   proj1Title: { pt: "Sistema de Gestão da Qualidade" },
   proj1Desc: { pt: "API REST em camadas para gestão de processos internos — autenticação, gestão de documentos e planos de ação." },
 
-  proj2Title: { pt: "API de Recrutamento e Seleção" },
+  proj2Title: { pt: "Sistema de Recrutamento e Seleção" },
   proj2Desc: { pt: "API de nível produtivo — JWT + refresh tokens, rate limiting, health checks, logging estruturado." },
 
   proj3Title: { pt: "Dashboard de Monitoramento Fiscal" },
   proj3Desc: { pt: "Dashboard Power BI que consome dados diretamente de um ERP para monitorar obrigações fiscais e conformidade." },
 
-  proj4Title: { pt: "BI de Fluxo de Caixa Operacional" },
+  proj4Title: { pt: "Dashboard de Fluxo de Caixa Operacional" },
   proj4DescLive: { pt: "Reestruturação do plano de contas no nível operacional e construção de um dashboard Power BI sobre os dados já organizados, com acompanhamento de entradas, saídas e saldos por período." },
 
   expTag: { pt: "Histórico" },
@@ -82,26 +82,24 @@ const caseStudyI18n = {
   case1Result: { pt: "As obrigações fiscais passaram a ficar visíveis em um só lugar, direto da fonte de dados oficial em vez de conciliação manual — reduzindo a chance de algo passar despercebido ou ser verificado com dado desatualizado." },
   case1PlaceholderDesc: { pt: "Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém registros fiscais reais da empresa." },
 
-  case2Title: { pt: "BI de Fluxo de Caixa Operacional" },
+  case2Title: { pt: "Dashboard de Fluxo de Caixa Operacional" },
   case2Problem: { pt: "O plano de contas da empresa não vinha sendo mantido de forma consistente — as transações eram classificadas de maneira inconsistente na origem, o que tornava qualquer relatório de fluxo de caixa construído em cima disso pouco confiável, por melhor que o dashboard parecesse." },
   case2Approach: { pt: "Em vez de começar pelo dashboard, comecei pelos dados. Reestruturei o plano de contas no nível operacional e defini regras claras de reclassificação para que as transações fossem consolidadas e categorizadas corretamente na origem. Só depois que essa base ficou sólida construí o dashboard no Power BI, com medidas de entradas, saídas e saldos por período." },
   case2Result: { pt: "A empresa agora tem uma base estruturalmente confiável para o relatório de fluxo de caixa operacional — o tipo de trabalho de base que importa mais do que o dashboard em si, já que uma visualização bonita em cima de dado bagunçado ainda engana." },
   case2PlaceholderDesc: { pt: "Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém dados financeiros reais da empresa." },
 
-  case3Title: { pt: "Painel de Contas a Receber e a Pagar" },
+  case3Title: { pt: "Dashboard de Contas a Receber e a Pagar" },
   case3Problem: { pt: "Os dados de contas a receber e a pagar estavam espalhados em sistemas diferentes, sem uma visão consolidada — o que dificultava responder, de forma rápida, uma pergunta simples: o que está entrando, o que está vencendo, e qual a posição de caixa no curto prazo." },
   case3Approach: { pt: "Consolidei os dados de contas a receber e a pagar dos sistemas de origem em um único dashboard no Power BI, estruturado para mostrar recebimentos e pagamentos futuros lado a lado, permitindo que o time financeiro visse a posição de caixa de curto prazo rapidamente, em vez de checar várias fontes." },
   case3Result: { pt: "O time financeiro passou a ter uma visão única e consolidada de contas a receber e a pagar, substituindo checagens manuais espalhadas por um dashboard confiável para acompanhar o caixa no dia a dia." },
   case3PlaceholderDesc: { pt: "Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém dados financeiros reais da empresa." },
 
-  case4Title: { pt: "Painel de Comissão de Vendas e Metas" },
+  case4Title: { pt: "Dashboard de Comissão de Vendas e Metas" },
   case4Problem: { pt: "A comissão de vendas era calculada manualmente em planilha — lento e sujeito a erro. A lógica de negócio por trás também não era trivial: o atingimento de meta é medido sobre o mês em que a nota fiscal é emitida, mas a comissão só é paga quando o pagamento é efetivamente recebido, às vezes em parcelas ao longo de vários meses, sempre usando a taxa travada no mês original de emissão." },
   case4Approach: { pt: "Construí um modelo semântico em esquema estrela direto sobre o banco de dados do ERP, separando metas, faturamento e recebimento de comissão em tabelas fato com granularidade e tempo próprios. Usei DAX com contexto de filtro deslocado no tempo para travar a taxa de comissão de cada parcela no mês original de emissão, e documentei as regras de negócio e casos extremos descobertos durante a validação dos números contra os relatórios legados da empresa." },
   case4Result: { pt: "Substituiu um processo manual e sujeito a erro por um dashboard automatizado e auditável — cada valor de comissão rastreável linha a linha até a fonte de dados." },
   case4PlaceholderDesc: { pt: "Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém dados reais de vendas e comissão da empresa." },
 
-  disclaimerLabel: { pt: "Uma observação sobre os dados:" },
-  disclaimerText: { pt: "Os quatro dashboards foram construídos usando dados internos reais da empresa, que não podem ser compartilhados publicamente. Quando as versões com dado sintético estiverem prontas, elas vão substituir os placeholders acima por prints ou um vídeo curto — mesma estrutura e lógica, números fictícios." },
   footerText: { pt: "Tem dúvidas sobre algum desses projetos?" }
 };
 
