@@ -80,7 +80,7 @@ const caseStudyI18n = {
   case1Problem: { pt: "As obrigações fiscais e os dados de conformidade estavam dentro do sistema ERP da empresa, mas não havia uma forma consolidada de monitorá-los. Verificar o status fiscal significava navegar diretamente no ERP ou cruzar exportações manualmente — lento, sujeito a erros e difícil de manter atualizado." },
   case1Approach: { pt: "Conectei diretamente ao banco de dados do ERP e escrevi consultas SQL para extrair e consolidar os registros fiscais relevantes. A partir disso, modelei os dados no Power BI e construí um dashboard focado em clareza: obrigações atuais, prazos e status de conformidade, atualizados direto da fonte em vez de exportações manuais." },
   case1Result: { pt: "As obrigações fiscais passaram a ficar visíveis em um só lugar, direto da fonte de dados oficial em vez de conciliação manual — reduzindo a chance de algo passar despercebido ou ser verificado com dado desatualizado." },
-  case1PlaceholderDesc: { pt: "Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém registros fiscais reais da empresa." },
+  case1PlaceholderDesc: { pt: "Recriado com dado sintético no Power BI Desktop, já que o original contém registros fiscais reais da empresa." },
 
   case2Title: { pt: "Dashboard de Fluxo de Caixa Operacional" },
   case2Problem: { pt: "O plano de contas da empresa não vinha sendo mantido de forma consistente — as transações eram classificadas de maneira inconsistente na origem, o que tornava qualquer relatório de fluxo de caixa construído em cima disso pouco confiável, por melhor que o dashboard parecesse." },
@@ -92,13 +92,13 @@ const caseStudyI18n = {
   case3Problem: { pt: "Os dados de contas a receber e a pagar estavam espalhados em sistemas diferentes, sem uma visão consolidada — o que dificultava responder, de forma rápida, uma pergunta simples: o que está entrando, o que está vencendo, e qual a posição de caixa no curto prazo." },
   case3Approach: { pt: "Consolidei os dados de contas a receber e a pagar dos sistemas de origem em um único dashboard no Power BI, estruturado para mostrar recebimentos e pagamentos futuros lado a lado, permitindo que o time financeiro visse a posição de caixa de curto prazo rapidamente, em vez de checar várias fontes." },
   case3Result: { pt: "O time financeiro passou a ter uma visão única e consolidada de contas a receber e a pagar, substituindo checagens manuais espalhadas por um dashboard confiável para acompanhar o caixa no dia a dia." },
-  case3PlaceholderDesc: { pt: "Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém dados financeiros reais da empresa." },
+  case3PlaceholderDesc: { pt: "Recriado com dado sintético no Power BI Desktop, já que o original contém dados financeiros reais da empresa." },
 
   case4Title: { pt: "Dashboard de Comissão de Vendas e Metas" },
   case4Problem: { pt: "A comissão de vendas era calculada manualmente em planilha — lento e sujeito a erro. A lógica de negócio por trás também não era trivial: o atingimento de meta é medido sobre o mês em que a nota fiscal é emitida, mas a comissão só é paga quando o pagamento é efetivamente recebido, às vezes em parcelas ao longo de vários meses, sempre usando a taxa travada no mês original de emissão." },
   case4Approach: { pt: "Construí um modelo semântico em esquema estrela direto sobre o banco de dados do ERP, separando metas, faturamento e recebimento de comissão em tabelas fato com granularidade e tempo próprios. Usei DAX com contexto de filtro deslocado no tempo para travar a taxa de comissão de cada parcela no mês original de emissão, e documentei as regras de negócio e casos extremos descobertos durante a validação dos números contra os relatórios legados da empresa." },
   case4Result: { pt: "Substituiu um processo manual e sujeito a erro por um dashboard automatizado e auditável — cada valor de comissão rastreável linha a linha até a fonte de dados." },
-  case4PlaceholderDesc: { pt: "Recriando este dashboard com dado sintético no Power BI Desktop, já que o original contém dados reais de vendas e comissão da empresa." },
+  case4PlaceholderDesc: { pt: "Recriado com dado sintético no Power BI Desktop, já que o original contém dados reais de vendas e comissão da empresa." },
 
   footerText: { pt: "Tem dúvidas sobre algum desses projetos?" }
 };
@@ -199,9 +199,37 @@ function initMobileNav() {
   });
 }
 
+function initCaseCarousels() {
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll(".case-carousel-slide"));
+    const dots = Array.from(carousel.querySelectorAll(".case-carousel-dot"));
+    const prevBtn = carousel.querySelector(".case-carousel-prev");
+    const nextBtn = carousel.querySelector(".case-carousel-next");
+    if (slides.length < 2) return;
+
+    let index = 0;
+
+    const show = (i) => {
+      index = (i + slides.length) % slides.length;
+      slides.forEach((slide, si) => slide.classList.toggle("is-active", si === index));
+      dots.forEach((dot, di) => dot.classList.toggle("is-active", di === index));
+    };
+
+    if (prevBtn) prevBtn.addEventListener("click", () => show(index - 1));
+    if (nextBtn) nextBtn.addEventListener("click", () => show(index + 1));
+    dots.forEach((dot, di) => dot.addEventListener("click", () => show(di)));
+
+    carousel.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") show(index - 1);
+      if (e.key === "ArrowRight") show(index + 1);
+    });
+  });
+}
+
 if (document.querySelector("[data-i18n]")) {
   const isCaseStudiesPage = window.location.pathname.includes("case-studies") || document.body.dataset.page === "case-studies";
   initI18n(isCaseStudiesPage ? caseStudyI18n : i18n);
 }
 
 initMobileNav();
+initCaseCarousels();
